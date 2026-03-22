@@ -1,0 +1,30 @@
+export const COLORS = {
+  primary: '#FF6B35',
+  primaryDark: '#CC5520',
+  primaryLight: '#FF9A70',
+  background: '#0F1929',
+  surface: '#162235',
+  card: '#1C2D45',
+  cardLight: '#243660',
+  border: '#2A3F60',
+  text: '#FFFFFF',
+  textSub: '#8FA3C0',
+  textMuted: '#556B88',
+  accent: '#00C9A7',
+  warning: '#FFB800',
+  danger: '#FF4757',
+  success: '#2ED573',
+  star: '#FFD700',
+  overlay: 'rgba(15, 25, 41, 0.85)',
+  overlayLight: 'rgba(15, 25, 41, 0.5)',
+};
+
+export const FONTS = {
+  sm: 12,
+  base: 14,
+  md: 16,
+  lg: 18,
+  xl: 22,
+  xxl: 28,
+  xxxl: 36,
+};
