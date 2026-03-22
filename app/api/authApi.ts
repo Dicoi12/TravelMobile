@@ -1,6 +1,5 @@
-import { apiClient } from "./client";
+import { apiClient } from './client';
 
-// request/response interfaces
 export interface LoginRequest {
   userName: string;
   password: string;
@@ -8,13 +7,30 @@ export interface LoginRequest {
 
 export interface LoginResponse {
   token: string;
-  // add other fields returned by your API if needed
 }
 
-/**
- * POST /api/user/login
- * body: { userName, password }
- */
+export interface SignUpRequest {
+  userName: string;
+  password: string;
+  email: string;
+  phone?: string;
+}
+
+export const authApi = {
+  login: (body: LoginRequest) =>
+    apiClient.post<LoginResponse>('/user/Login', body),
+
+  signUp: (body: SignUpRequest) =>
+    apiClient.post<{ isSuccessful: boolean; result: boolean; validationMessage: string | null }>(
+      '/user/SignUp',
+      body,
+    ),
+
+  changePassword: (body: { userId: number; oldPassword: string; newPassword: string }) =>
+    apiClient.post('/user/ChangePassword', body),
+};
+
+// legacy export
 export async function login(body: LoginRequest) {
-  return await apiClient.post<LoginResponse>("/user/login", body);
+  return apiClient.post<LoginResponse>('/user/Login', body);
 }
